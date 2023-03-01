@@ -10,6 +10,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copiar los archivos de la aplicación
+RUN mkdir /app
 COPY main.py /app
 COPY datasets/* /app/datasets
 
