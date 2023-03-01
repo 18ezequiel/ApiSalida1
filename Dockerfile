@@ -10,8 +10,8 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copiar los archivos de la aplicación
-COPY main.py 
-COPY datasets /app
+COPY main.py /app
+COPY datasets/* /app/datasets
 
 # Iniciar la aplicación
-CMD ["python", "main.py"]
+CMD ["python", "/app/main.py"]
