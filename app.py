@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import random
 import pandas as pd
-from flask import Flask
 
-app = Flask(__name__)
+
+app = FastAPI()
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col,lower
