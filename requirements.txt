@@ -3,3 +3,4 @@ pandas
 pyspark==3.2.1
 uvicorn
 gunicorn
+boto3
