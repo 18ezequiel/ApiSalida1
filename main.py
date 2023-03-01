@@ -9,7 +9,7 @@ from pyspark.sql.functions import col,lower
 
 spark = SparkSession.builder.appName("ReadParquet").getOrCreate()
 
-df_metadata = spark.read.parquet("/datasets/metada-streamlit.parquet")
+df_metadata = spark.read.parquet("metada-streamlit.parquet")
 dfuser = spark.read.parquet("/datasets/metada-streamlit.parquet")
 dfbar = spark.read.parquet("ApiSalida1/datasets/bar_part.snappy.parquet")
 dfrestaurant = spark.read.parquet("ApiSalida1/datasets/restaurant_part.snappy.parquet")
