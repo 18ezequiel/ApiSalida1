@@ -1,7 +1,19 @@
 from fastapi import FastAPI
 import random
 import pandas as pd
+import boto3
 
+
+# Establecer credenciales de acceso
+s3 = boto3.client(
+    's3',
+    aws_access_key_id='AKIAXRYNTY2XECDO7SPO',
+    aws_secret_access_key='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',
+    region_name='us-west-1'
+)
+bucket_name = 'data-post-ml'
+key = 'metada-streamlit.parquet'
+response = s3.get_object(Bucket=bucket_name, Key=key)
 
 app = FastAPI()
 
@@ -10,7 +22,7 @@ from pyspark.sql.functions import col,lower
 
 spark = SparkSession.builder.appName("ReadParquet").getOrCreate()
 
-df_metadata = spark.read.parquet("/18ezequiel/ApiSalida1/blob/main/datasets/metada-streamlit.parquet")
+df_metadata = spark.read.parquet(response)
 dfuser = spark.read.parquet("ApiSalida1/datasets/users.parquet")
 dfbar = spark.read.parquet("ApiSalida1/datasets/bar_part.snappy.parquet")
 dfrestaurant = spark.read.parquet("ApiSalida1/datasets/restaurant_part.snappy.parquet")
