@@ -1,1 +1,0 @@
-web: spark-submit --py-files $(find . -name "*.py" -not -name "pyspark-setup.py") app.py
