@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'ApiSalida001'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A35BB98A10D24BE887287391BEB9D841 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E0D37107EFAA413B8205DC10AFEB4FC6 }}
