@@ -9,11 +9,18 @@ from pyspark.sql.functions import col,lower
 
 spark = SparkSession.builder.appName("ReadParquet").getOrCreate()
 
-df_metadata = spark.read.parquet("/app/datasets/metada-streamlit.parquet")
-dfuser = spark.read.parquet("/datasets/metada-streamlit.parquet")
-dfbar = spark.read.parquet("ApiSalida1/datasets/bar_part.snappy.parquet")
-dfrestaurant = spark.read.parquet("ApiSalida1/datasets/restaurant_part.snappy.parquet")
-dfcafe = spark.read.parquet("ApiSalida1/datasets/cafe_part.snappy.parquet")
+@app.post("/upload")
+def upload(file: UploadFile = File(...)):
+
+    '''
+    La funcion se encarga de crear un apartado en la api
+    para la carga de archivos al drive.
+    '''
+    
+    name = file.filename
+    f = file.file
+    res = drive.put(name, f)
+    return res
 
 @app.get('/')
 def index():
