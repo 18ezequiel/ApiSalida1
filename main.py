@@ -11,10 +11,10 @@ from pyspark.sql.functions import col,lower
 spark = SparkSession.builder.appName("ReadParquet").getOrCreate()
 
 df_metadata = spark.read.parquet("./datasets/metada-streamlit.parquet")
-dfuser = spark.read.parquet("./datasets/users.parquet")
-dfbar = spark.read.parquet("./datasets/bar_part.snappy.parquet")
-dfrestaurant = spark.read.parquet("./datasets/restaurant_part.snappy.parquet")
-dfcafe = spark.read.parquet("./datasets/cafe_part.snappy.parquet")
+dfuser = spark.read.parquet("ApiSalida1/datasets/users.parquet")
+dfbar = spark.read.parquet("ApiSalida1/datasets/bar_part.snappy.parquet")
+dfrestaurant = spark.read.parquet("ApiSalida1/datasets/restaurant_part.snappy.parquet")
+dfcafe = spark.read.parquet("ApiSalida1/datasets/cafe_part.snappy.parquet")
 
 @app.get('/')
 def index():
